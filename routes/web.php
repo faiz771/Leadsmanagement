@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth','admin_access']], function () {
     Route::get('/reassign_projectcreate' ,[App\Http\Controllers\Admin\AssignleadController::class ,'reassign_projectcreate']);
     Route::put('/reassignproject' ,[App\Http\Controllers\Admin\AssignleadController::class ,'reassignproject']);
 
+
 	// new route
 	Route::resource('country','App\Http\Controllers\Admin\CountryController');
 	Route::resource('leads','App\Http\Controllers\Admin\leadController');
