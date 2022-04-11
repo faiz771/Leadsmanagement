@@ -16,14 +16,14 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="developer" class="display table" style="width: 100%; cellspacing: 0;">
+                            <table id="mytable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
                                         <th>Created</th>
                                         <th>Updated</th>
                                         <th>Status</th>
-                                        <!-- <th>Action</th> -->
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,9 +39,9 @@
                                             <a href="javascript:void(0)" class="btn btn-light leadstatus" name="leadstatus" data-id={{$leadstatus->id}}>OFF</a>
                                             @endif
                                         </td>
-                                        <!-- <td>
-                                        <a href="#" class="delete_btn5" data-route="#"><i class=" fas fa-trash text-danger" aria-hidden="true" style="font-size:20px;cursor:pointer;margin-left: 5px;" data-toggle="modal" data-target="#exampleModal"></i></a>
-                                        </td> -->
+                                        <td>
+                                        <a href="#" class="delete_btn_status" data-route="{{route('lead_status_delete',$leadstatus->id)}}"><i class=" fas fa-trash text-danger" aria-hidden="true" style="font-size:20px;cursor:pointer;margin-left: 5px;" data-toggle="modal" data-target="#exampleModal"></i></a>
+                                        </td>
                                     </tr>
                                     @endforeach()
                                 </tbody>
@@ -67,7 +67,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <form method="post" id="lead_source_form"> 
+          <form method="post" id="lead_status_form"> 
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">Delete</button>

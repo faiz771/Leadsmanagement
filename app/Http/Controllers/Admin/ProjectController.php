@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -42,12 +43,14 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
 
-        // $validated = $request->validate([
-        //     'project_image' => 'max:5120', //5MB 
-        //     'floor_plans' => 'max:5120', //5MB 
-        //     'payment_plan' => 'max:5120', //5MB 
-        //     'booklet' => 'max:5120', //5MB 
-        // ]);
+        
+        $validated = $request->validate([
+            'project_image' => 'mimes:jpeg,jpg,png,gif|required|max:7000',
+            'floor_plans' => 'mimes:jpeg,jpg,png,gif|required|max:7000',
+            'payment_plan' => 'mimes:jpeg,jpg,png,gif|required|max:7000',
+            'booklet' => 'mimes:jpeg,jpg,png,gif|required|max:7000',
+            'name' => 'max:8',
+        ]);
 
         if ($file = $request->file('project_image')) {
             $project_image = date('YmdHis').".". $file->extension();

@@ -177,6 +177,14 @@ class LeadController extends Controller
 
     }
 
+    public function lead_source_destroy($id)
+    {
+        $lead = LeadSource::findorFail($id);
+
+        $lead->delete();
+
+        return redirect()->route('lead-source-list')->with('success','Lead Source has been Deleted');
+    }
 
     public function lead_status_index()
     {
@@ -219,5 +227,13 @@ class LeadController extends Controller
 
         return $result; 
 
+    }
+    public function lead_status_destroy($id)
+    {
+        $lead = LeadStatus::findorFail($id);
+
+        $lead->delete();
+
+        return redirect()->route('lead-status-list')->with('success','Lead Status has been Deleted');
     }
 }

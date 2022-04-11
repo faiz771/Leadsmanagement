@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="developer" class="display table" style="width: 100%; cellspacing: 0;">
+                            <table id="mytable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -31,8 +31,8 @@
                                         <td>{{$project->created_at}}</td>
                                         <td>{{$project->updated_at}}</td>
                                         <td>
-                                            <a href="{{route('projects.edit',$project->id)}}"><i class="fa fa-edit text-primary" aria-hidden="true" style="font-size:20px;cursor:pointer;margin-top: 4px;" data-toggle="modal"></i></a>
-                                            <a href="#" class="delete_btn6" data-route="{{route('projects.destroy',$project->id)}}"><i class=" fas fa-trash text-danger" aria-hidden="true" style="font-size:20px;cursor:pointer;margin-left: 5px;" data-toggle="modal" data-target="#exampleModal"></i></a>
+                                          <a href="{{route('projects.edit',$project->id)}}"><i class="fa fa-edit text-primary" aria-hidden="true" style="font-size:20px;cursor:pointer;margin-top: 4px;" data-toggle="modal"></i></a>
+                                          <a href="#" class="delete_btn6" data-route="{{route('projects.destroy',$project->id)}}"><i class=" fas fa-trash text-danger" aria-hidden="true" style="font-size:20px;cursor:pointer;margin-left: 5px;" data-toggle="modal" data-target="#exampleModal"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach()
@@ -59,12 +59,13 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <form method="post" id="delete_form6"> 
             @csrf
-            <input type="hidden" name="_method" value="delete">
+            @method('DELETE')
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+  
 @endsection
 

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\Userteam;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserteamRequest;
 use App\Http\Requests\UpdateUserteamRequest;
+use Illuminate\Support\Facades\File;
 
 class UserteamController extends Controller
 {
@@ -15,7 +17,9 @@ class UserteamController extends Controller
      */
     public function index()
     {
-        //
+        $userteams = Userteam::all();
+
+        return view('admin.userteam.index',compact('userteams'));
     }
 
     /**
@@ -25,7 +29,7 @@ class UserteamController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.userteam.adteam');
     }
 
     /**
@@ -36,7 +40,13 @@ class UserteamController extends Controller
      */
     public function store(StoreUserteamRequest $request)
     {
-        //
+        Userteam::create([
+            'name' => $request->input('name'),
+            'user_id' => $request->user_id,
+        ]);
+
+        return redirect()->route('userteam.index')->with('success','User Team has been Created');
+
     }
 
     /**
@@ -79,8 +89,10 @@ class UserteamController extends Controller
      * @param  \App\Models\Userteam  $userteam
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Userteam $userteam)
+    public function destroy($id)
     {
-        //
+        $userteam = Userteam::findorFail($id);
+        $userteam->delete();
+        return redirect()->route('userteam.index')->with('success','Team has Deleted');
     }
 }

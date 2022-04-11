@@ -13,7 +13,7 @@ class StoreUserteamRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

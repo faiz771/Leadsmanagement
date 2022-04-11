@@ -31,7 +31,7 @@
 
                                 <div class="form-group col-md-4">
                                     <label for="inputText3" class="col-form-label">Project Name<span class="text-danger">*</span></label>
-                                    <input type="text" name="project_name" class="form-control" required>
+                                    <input type="text" name="project_name" class="form-control  @error('project_name') is-invalid @enderror" required>
                                     @error('project_name')
                                     <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Project Picture</label>
-                                    <input type="file" class="form-control-file" name="project_image" multiple
+                                    <input type="file" class="form-control-file @error('project_image') is-invalid @enderror" name="project_image" multiple
                                         aria-describedby="fileHelpId" >
                                     @error('project_image')
                                     <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Floor Plans</label>
-                                    <input type="file" class="form-control-file" name="floor_plans" multiple id="floorPlan" placeholder=""
+                                    <input type="file" class="form-control-file @error('floor_plans') is-invalid @enderror" name="floor_plans" multiple id="floorPlan" placeholder=""
                                         aria-describedby="fileHelpId">
                                     @error('floor_plans')
                                     <span class="invalid-feedback" role="alert">
@@ -70,20 +70,20 @@
 
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Payment Plans </label>
-                                    <input type="file" class="form-control-file" name="payment_plan" multiple placeholder=""
+                                    <input type="file" class="form-control-file @error('payment_plan') is-invalid @enderror" name="payment_plan" multiple placeholder=""
                                         aria-describedby="fileHelpId">
                                     @error('payment_plan')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                    <strong class="text-danger">{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Booklet </label>
-                                    <input type="file" class="form-control-file" multiple name="booklet" aria-describedby="fileHelpId">
+                                    <input type="file" class="form-control-file @error('booklet') is-invalid @enderror" multiple name="booklet" aria-describedby="fileHelpId">
                                     @error('booklet')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                    <strong class="text-danger">{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>

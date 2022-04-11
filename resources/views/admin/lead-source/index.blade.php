@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="developer" class="display table" style="width: 100%; cellspacing: 0;">
+                            <table id="mytable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -24,7 +24,7 @@
                                         <th>Created</th>
                                         <th>Updated</th>
                                         <th>Status</th>
-                                        <!-- <th>Action</th> -->
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +41,9 @@
                                             <a href="javascript:void(0)" class="btn btn-light leadsource" name="sourcestatus" data-id={{$leadsource->id}}>OFF</a>
                                             @endif
                                         </td>
-                                     
+                                        <td>
+                                        <a href="#" class="delete_btn_source" data-route="{{route('lead_source_delete',$leadsource->id)}}"><i class=" fas fa-trash text-danger" aria-hidden="true" style="font-size:20px;cursor:pointer;margin-left: 5px;" data-toggle="modal" data-target="#exampleModal"></i></a>
+                                        </td>
                                     </tr>
                                     @endforeach()
                                 </tbody>

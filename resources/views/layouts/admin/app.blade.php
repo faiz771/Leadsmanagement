@@ -19,24 +19,17 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/charts/c3charts/c3.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/flag-icon-css/flag-icon.min.css') }}">
 
-
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/datatables/css/dataTables.bootstrap4.css')}}"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/datatables/css/buttons.bootstrap4.css')}}"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/datatables/css/select.bootstrap4.css')}}"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/datatables/css/fixedHeader.bootstrap4.css')}}"> --}}
     {{-- <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../assets/vendor/datepicker/tempusdominus-bootstrap-4.css" /> --}}
     <link rel="stylesheet" href="{{ asset('assets/vendor/inputmask/css/inputmask.css') }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css"/>
 
-    <link href="{{ asset('assets/datatables/css/jquery.datatables.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/datatables/css/jquery.datatables_themeroller.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ asset('assets/datatables/css/jquery.datatables.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/datatables/css/jquery.datatables_themeroller.css') }}" rel="stylesheet"
-        type="text/css" />
+
+
+    
     <title>Admin Dashboard</title>
 </head>
 
@@ -63,7 +56,6 @@
                                     <h5 class="mb-0 text-white nav-user-name">
                                         {{ __(auth()->user()->name)}}</h5>
                                 </div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Profile</a>
                                 <a class="dropdown-item" href="{{ url('logout') }}"><i
                                         class="fas fa-power-off mr-2"></i>Logout</a>
                             </div>
@@ -81,7 +73,7 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="{{ url('/') }}">Dashboard</a>
+                    <a class="d-xl-none d-lg-none" href="{{ url('#') }}">Dashboard</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
@@ -91,7 +83,7 @@
 
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="{{ url('/') }}"><i
+                                <a class="nav-link active" href="{{ url('/home') }}"><i
                                         class="fa fa-fw fa-user-circle"></i>Dashboard </a>
                             </li>
                             <li class="nav-item">
@@ -111,24 +103,6 @@
                                     </ul>
                                 </div>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                    data-target="#submenu-3" aria-controls="submenu-3"><i
-                                        class="fas fa-fw fa-chart-pie"></i>Country</a>
-                                <div id="submenu-3" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/admin/add-country') }}">Add
-                                                Country <span class="badge badge-secondary">New</span></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/admin/country') }}">
-                                                Country List</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </li> -->
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
@@ -235,7 +209,7 @@
                                 <div id="submenu-7" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ url('/admin/user-team') }}">User Team List<span class="badge badge-secondary">New</span></a>
+                                            <a class="nav-link" href="{{route('userteam.index')}}">User Team List<span class="badge badge-secondary">New</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -318,33 +292,12 @@
     <script src="{{ asset('assets/libs/js/dashboard-ecommerce.js') }}"></script>
 
     <script src="{{ asset('assets/vendor/inputmask/js/jquery.inputmask.bundle.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 
-    {{-- <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset('assets/vendor/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="{{asset('assets/vendor/datatables/js/buttons.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/datatables/js/data-table.js')}}"></script>
 
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset('assets/vendor/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/datatables/js/buttons.bootstrap4.min.js')}}"></script> --}}
 
-    {{-- <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
-    <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script> --}}
 
-    <script src="{{ asset('assets/datatables/js/jquery.datatables.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/datatables/js/jquery.datatables.min.js') }}"></script> --}}
+
 
     @yield('script')
     <script>
@@ -372,7 +325,45 @@
             $('#conform_delete_modal').modal('show');
         })
 
+        $(document).on('click','.delete_btn_user_team',function () {
+            var url = $(this).attr('data-route');
 
+                $("#delete_form_user_team").attr('action',url);
+
+            $('#conform_delete_modal').modal('show');
+        })
+        
+        $(document).on('click','.delete_btn2',function () {
+            var url = $(this).attr('data-route');
+
+                $("#delete_form2").attr('action',url);
+
+            $('#conform_delete_modal').modal('show');
+        })
+
+        $(document).on('click','.delete_btn3',function () {
+            var url = $(this).attr('data-route');
+
+                $("#delete_form3").attr('action',url);
+
+            $('#conform_delete_modal').modal('show');
+        })
+
+        $(document).on('click','.delete_btn_source',function () {
+            var url = $(this).attr('data-route');
+
+                $("#lead_source_form").attr('action',url);
+
+            $('#conform_delete_modal').modal('show');
+        })
+
+        $(document).on('click','.delete_btn_status',function () {
+            var url = $(this).attr('data-route');
+
+                $("#lead_status_form").attr('action',url);
+
+            $('#conform_delete_modal').modal('show');
+        })
 
         $(document).on('click','.status',function(){
 
@@ -443,6 +434,10 @@ $(document).on('click','.personstatus',function(){
 
     });
 })
+
+$(document).ready( function () {
+            $('#mytable').DataTable();
+ });
     </script>
 
 </body>
