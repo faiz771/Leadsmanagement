@@ -1,0 +1,36 @@
+<td>{{$showroom->owner->name}}</td>
+users table
+name
+email
+password
+role --->
+		super admin 
+		showroom owner 
+		showroom manager 
+		customer           done
+
+showrooms table
+name
+description
+image 
+
+
+showroom_users
+user_id
+showroom_id      done
+
+case table
+name
+description
+files
+status  -->
+	   pending
+	   processing
+	   closed
+	   cancled     done
+
+case_users
+	case_id
+	user_id
+
+			done
